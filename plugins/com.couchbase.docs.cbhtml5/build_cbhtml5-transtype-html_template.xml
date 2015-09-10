@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." name="org.couchbase.docs.cbhtml5" default="dita2cbhtml5">
+	
+	<property name="transtype" value="cbhtml5"></property />
+	
+   <target name="dita2cbhtml5" value="${dita.dir}/plugings/com.couchbase.docs.cbhtml5"
+</project>

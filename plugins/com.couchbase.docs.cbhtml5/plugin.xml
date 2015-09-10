@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin id="com.couchbase.docs.cbhtml5">
+
+	<feature extension="dita.xsl.xhtml" type="file" value="xsl/use-code-tags.xsl" />
+	
+</plugin>
