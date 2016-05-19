@@ -2082,7 +2082,7 @@
   <xsl:variable name="row" select=".." as="element()"/>
   <xsl:variable name="body" select="../.." as="element()"/>
   <xsl:variable name="group" select="../../.." as="element()"/>
-  <xsl:variable name="colspec" select="../../../*[contains(@class, ' topic/colspec ')][@colname and @colname = $this-colname]" as="element()"/>
+  <xsl:variable name="colspec" select="../../../*[contains(@class, ' topic/colspec ')][@colname and @colname = $this-colname]" as="element()?"/>
   <xsl:variable name="table" select="../../../.." as="element()"/>
   
   <xsl:variable name="framevalue">
