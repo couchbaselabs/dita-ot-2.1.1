@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension>
+    <param name="editlink.remote.ditamap.url" expression="${editlink.remote.ditamap.url}" if="editlink.remote.ditamap.url"/>
+    <sysproperty key="editlink.remote.ditamap.url" value="${editlink.remote.ditamap.url}"/>
+    <param name="editlink.local.ditamap.path" expression="${args.input}"/>
+</extension>
+

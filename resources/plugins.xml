@@ -1,4 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><plugins><plugin id="com.sophos.tocjs">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><plugins><plugin id="com.couchbase.docs.editlink">
+
+  <feature extension="dita.xsl.xhtml" type="file" value="xhtml.xsl"/>
+  <feature extension="dita.conductor.xhtml.param" type="file" value="params.xml"/>
+  <transtype desc="WebHelp Responsive" name="webhelp-responsive">
+    <param desc="The custom URL of the DITA Map suitable for opening on GitHub" name="editlink.remote.ditamap.url" type="string"/>
+  </transtype>
+</plugin><plugin id="com.sophos.tocjs">
   <transtype desc="TocJS" extends="5html" name="tocjs"/>
   <feature extension="dita.conductor.target" file="integrator.xml"/>
 </plugin><plugin id="org.dita.specialization.dita11">
