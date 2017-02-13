@@ -1,80 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><plugins><plugin id="org.dita.specialization.dita11">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><plugins><plugin id="com.sophos.tocjs">
+  <transtype desc="TocJS" extends="5html" name="tocjs"/>
+  <feature extension="dita.conductor.target" file="integrator.xml"/>
+</plugin><plugin id="org.dita.specialization.dita11">
         <feature extension="dita.specialization.catalog.relative" file="catalog.xml"/>
-    </plugin><plugin id="com.couchbase.docs.html-draft">
-  <feature extension="package.version" value="1.5.3"/>
-  <feature extension="dita.conductor.transtype.check" value="com.couchbase.docs.html-draft"/>
-  <feature extension="dita.conductor.target.relative" file="build.xml"/>
-  <feature extension="dita.conductor.xhtml.param" file="params.xml"/>
-</plugin><plugin id="org.dita.pdf2">
-  <!-- extension points -->
-  <extension-point id="dita.xsl.xslfo" name="PDF XSLT import"/>
-  <extension-point id="org.dita.pdf2.xsl.topicmerge" name="PDF2 topic merge XSLT import"/>
-  <extension-point id="depend.org.dita.pdf2.format.pre" name="Formatting pre-target"/>
-  <extension-point id="depend.org.dita.pdf2.format" name="Formatting target"/>
-  <extension-point id="depend.org.dita.pdf2.format.post" name="Formatting post-target"/>
-  <extension-point id="org.dita.pdf2.catalog.relative" name="Configuration XML catalog"/>
-  <extension-point id="dita.conductor.pdf2.param" name="PDF XSLT parameters"/>
-  <extension-point id="dita.conductor.pdf2.formatter.check" name="Formatter check"/>
-  <!-- extensions -->
-  <feature extension="dita.conductor.lib.import" file="lib/fo.jar"/>
-  <transtype desc="PDF" name="pdf pdf2">
-    <param desc="Specifies if the frontmatter and backmatter content order is retained in bookmap." name="args.bookmap-order" type="enum">
-      <val>retain</val>
-      <val default="true">discard</val>
-    </param>
-    <param desc="Specifies whether PDF bookmarks are by default expanded or collapsed." name="args.bookmark.style" type="enum">
-      <val>COLLAPSED</val>
-      <val>EXPANDED</val>
-      <val>COLLAPSE</val>
-    </param>
-    <param desc="Specifies whether chapter level TOCs are generated." name="args.chapter.layout" type="enum">
-      <val default="true">MINITOC</val>
-      <val>BASIC</val>
-    </param>
-    <param desc="Specifies an XSL file that is used to override the default XSL transformation." name="args.xsl.pdf" type="file"/>
-    <param desc="Specifies the user configuration file for RenderX." name="custom.xep.config" type="file"/>
-    <param desc="Specifies the customization directory." name="customization.dir" type="dir"/>
-    <param desc="Specifies the XSL processor." name="pdf.formatter" type="enum">
-      <val desc="Antenna House Formatter">ah</val>
-      <val default="true" desc="Apache FOP">fop</val>
-      <val desc="RenderX XEP Engine">xep</val>
-    </param>
-    <param desc="Specifies whether draft-comment and required-cleanup elements are included in the output." name="publish.required.cleanup" type="enum">
-      <val>yes</val>
-      <val>no</val>
-    </param>
-    <param deprecated="true" desc="Specifies whether to retain the generated FO file." name="retain.topic.fo" type="enum">
-      <val>yes</val>
-      <val default="true">no</val>
-    </param>
-    <param desc="Specifies the user configuration file for FOP." name="args.fo.userconfig" type="file"/>
-    <param desc="Enables I18N font processing." name="org.dita.pdf2.i18n.enabled" type="enum">
-      <val default="true" desc="Enables I18N processing">true</val>
-      <val desc="Disables I18N processing">false</val>
-    </param>
-  </transtype>
-  <feature extension="dita.transtype.print" value="pdf"/>
-  <feature extension="dita.transtype.print" value="pdf2"/>
-  <feature extension="dita.conductor.target.relative" file="integrator.xml"/>
-  <feature extension="dita.xsl.messages" file="resource/messages.xml"/>
-  <feature extension="dita.conductor.pdf2.formatter.check" value="fop"/>
-  <feature extension="dita.conductor.pdf2.formatter.check" value="xep"/>
-  <feature extension="dita.conductor.pdf2.formatter.check" value="ah"/>
-  <feature extension="dita.xsl.strings" file="cfg/common/vars/strings.xml"/>
-  <template file="build_template.xml"/>
-  <template file="cfg/catalog_template.xml"/>
-  <template file="xsl/fo/topic2fo_shell_template.xsl"/>
-  <template file="xsl/fo/topic2fo_shell_axf_template.xsl"/>
-  <template file="xsl/fo/topic2fo_shell_fop_template.xsl"/>
-  <template file="xsl/fo/topic2fo_shell_xep_template.xsl"/>
-  <template file="xsl/common/topicmerge_template.xsl"/>
-</plugin><plugin id="org.dita.javahelp">
-  <transtype desc="JavaHelp" extends="base-html" name="javahelp">
-    <param desc="Specifies the name of the ditamap file for a JavaHelp project." name="args.javahelp.map" type="file"/>
-    <param desc="Specifies the name of the file containing the TOC in your JavaHelp output." name="args.javahelp.toc" type="file"/>
-  </transtype>
-  <require plugin="org.dita.xhtml"/>
-  <feature extension="dita.conductor.target.relative" file="conductor.xml"/>
+    </plugin><plugin id="org.oasis-open.dita.v1_2">
+  <feature extension="dita.specialization.catalog.relative" file="catalog.xml"/>
 </plugin><plugin id="org.dita.xhtml">
   <!-- extension points -->
   <extension-point id="dita.xsl.xhtml" name="HTML/XHTML XSLT import"/>
@@ -141,29 +71,6 @@
   <template file="xsl/dita2html-base_template.xsl"/>
   <template file="xsl/map2htmltoc_template.xsl"/>
   <template file="xsl/map2html-coverImpl_template.xsl"/>
-</plugin><plugin id="com.sophos.tocjs">
-  <transtype desc="TocJS" extends="5html" name="tocjs"/>
-  <feature extension="dita.conductor.target" file="integrator.xml"/>
-</plugin><plugin id="org.dita.wordrtf">
-  <!-- extension points -->
-  <extension-point id="dita.xsl.rtf" name="RTF XSLT import"/>
-  <!-- extensions -->
-  <transtype desc="Word RTF" name="wordrtf"/>
-  <feature extension="dita.conductor.target.relative" file="conductor.xml"/>
-  <template file="xsl/dita2rtf_template.xsl"/>
-</plugin><plugin id="org.dita.htmlhelp">
-  <!-- extension points -->
-  <extension-point id="dita.xsl.htmlhelp.map2hhp" name="HTML Help project XSLT import"/>
-  <extension-point id="dita.xsl.htmlhelp.map2hhc" name="HTML Help content XSLT import"/>
-  <!-- extensions -->
-  <transtype desc="HTMLHelp" extends="base-html" name="htmlhelp">
-    <param desc="Specifies the name of a file that you want included in the HTML Help." name="args.htmlhelp.includefile" type="file"/>
-  </transtype>
-  <require plugin="org.dita.xhtml"/>
-  <feature extension="dita.conductor.target.relative" file="conductor.xml"/>
-  <feature extension="dita.xsl.messages" file="resource/messages.xml"/>
-  <template file="xsl/map2hhc_template.xsl"/>
-  <template file="xsl/map2hhp_template.xsl"/>
 </plugin><plugin id="org.dita.eclipsecontent">
   <!-- extension points -->
   <extension-point id="dita.xsl.dynamicdita" name="Dynamic DITA XSLT import"/>
@@ -179,8 +86,32 @@
   </transtype>
   <feature extension="dita.conductor.target.relative" file="conductor.xml"/>
   <template file="xsl/dita2dynamicdita_template.xsl"/>
-</plugin><plugin id="org.oasis-open.dita.v1_2">
-  <feature extension="dita.specialization.catalog.relative" file="catalog.xml"/>
+</plugin><plugin id="org.dita.troff">
+  <extension-point id="dita.xsl.troff-ast" name="Troff AST XSLT import"/>
+  <extension-point id="dita.xsl.troff" name="Troff XSLT import"/>
+  <feature extension="dita.conductor.transtype.check" value="troff"/>
+  <feature extension="dita.conductor.target.relative" file="conductor.xml"/>
+  <template file="xsl/dita2troff-ast-shell_template.xsl"/>
+  <template file="xsl/dita2troff-step2-shell_template.xsl"/>
+  <require plugin="org.dita.base"/>
+</plugin><plugin id="com.couchbase.docs.html-draft">
+  <feature extension="package.version" value="1.5.3"/>
+  <feature extension="dita.conductor.transtype.check" value="com.couchbase.docs.html-draft"/>
+  <feature extension="dita.conductor.target.relative" file="build.xml"/>
+  <feature extension="dita.conductor.xhtml.param" file="params.xml"/>
+</plugin><plugin id="org.dita.htmlhelp">
+  <!-- extension points -->
+  <extension-point id="dita.xsl.htmlhelp.map2hhp" name="HTML Help project XSLT import"/>
+  <extension-point id="dita.xsl.htmlhelp.map2hhc" name="HTML Help content XSLT import"/>
+  <!-- extensions -->
+  <transtype desc="HTMLHelp" extends="base-html" name="htmlhelp">
+    <param desc="Specifies the name of a file that you want included in the HTML Help." name="args.htmlhelp.includefile" type="file"/>
+  </transtype>
+  <require plugin="org.dita.xhtml"/>
+  <feature extension="dita.conductor.target.relative" file="conductor.xml"/>
+  <feature extension="dita.xsl.messages" file="resource/messages.xml"/>
+  <template file="xsl/map2hhc_template.xsl"/>
+  <template file="xsl/map2hhp_template.xsl"/>
 </plugin><plugin id="org.dita.specialization.eclipsemap">
     <feature extension="dita.specialization.catalog.relative" file="catalog.xml"/>
     <feature extension="dita.xsl.maplink" file="xsl/maplink-plugin.xsl"/>
@@ -189,7 +120,54 @@
     <feature extension="dita.xsl.eclipse.plugin" file="xsl/map2plugin.xsl"/>
     <feature extension="dita.conductor.target" file="script.xml"/>
     <feature extension="dita.map.eclipse.index.pre" type="text" value="dita.index.eclipsehelp.init"/> 
-  </plugin><plugin id="org.dita.base">
+  </plugin><plugin id="org.dita.wordrtf">
+  <!-- extension points -->
+  <extension-point id="dita.xsl.rtf" name="RTF XSLT import"/>
+  <!-- extensions -->
+  <transtype desc="Word RTF" name="wordrtf"/>
+  <feature extension="dita.conductor.target.relative" file="conductor.xml"/>
+  <template file="xsl/dita2rtf_template.xsl"/>
+</plugin><plugin id="org.dita.javahelp">
+  <transtype desc="JavaHelp" extends="base-html" name="javahelp">
+    <param desc="Specifies the name of the ditamap file for a JavaHelp project." name="args.javahelp.map" type="file"/>
+    <param desc="Specifies the name of the file containing the TOC in your JavaHelp output." name="args.javahelp.toc" type="file"/>
+  </transtype>
+  <require plugin="org.dita.xhtml"/>
+  <feature extension="dita.conductor.target.relative" file="conductor.xml"/>
+</plugin><plugin id="org.dita.docbook">
+  <!-- extension points -->
+  <extension-point id="dita.xsl.docbook" name="Docbook XSLT import"/>
+  <!-- extensions -->
+  <transtype desc="DocBook" name="docbook"/>
+  <feature extension="dita.conductor.target.relative" file="conductor.xml"/>
+  <template file="xsl/dita2docbook_template.xsl"/>
+</plugin><plugin id="org.dita.eclipsehelp">
+  <!-- extension points -->
+  <extension-point id="dita.xsl.eclipse.plugin" name="Eclipse plugin XSLT import"/>
+  <extension-point id="dita.map.eclipse.index.pre" name="Eclipse index extraction pre-target"/>
+  <extension-point id="dita.xsl.eclipse.toc" name="Eclipse TOC XSLT import"/>
+  <extension-point id="dita.conductor.eclipse.toc.param" name="Eclipse Help TOC XSLT parameter"/>
+  <!-- extensions -->
+  <transtype desc="Eclipse Help" extends="base-html" name="eclipsehelp">
+    <param desc="Specifies the name of the TOC file." name="args.eclipsehelp.toc" type="file"/>
+    <param desc="Specifies the region for the language that is specified by the args." name="args.eclipsehelp.country" type="string"/> 
+    <param desc="Specifies the base language for translated content, such as en for English." name="args.eclipsehelp.language" type="string"/> 
+    <param desc="Specifies the name of the person or organization that provides the Eclipse help." name="args.eclipse.provider" type="string">
+      <val default="true">DITA</val>
+    </param>
+    <param desc="Specifies the version number to include in the output." name="args.eclipse.version" type="string">
+      <val default="true">0.0.0</val>
+    </param>
+    <param desc="Specifies the symbolic name (aka plugin ID) in the output for an Eclipse Help project." name="args.eclipse.symbolic.name" type="string">
+      <val default="true">org.sample.help.doc</val>
+    </param>
+  </transtype>
+  <require plugin="org.dita.xhtml"/>
+  <feature extension="dita.conductor.target.relative" file="conductor.xml"/>
+  <template file="build_dita2eclipsehelp_template.xml"/>
+  <template file="xsl/map2eclipse_template.xsl"/>
+  <template file="xsl/map2plugin_template.xsl"/>
+</plugin><plugin id="org.dita.base">
   <!-- base extension points -->
   <extension-point id="package.version" name="Plug-in version"/>
   <extension-point id="package.support.email" name="Plug-in support email"/>
@@ -362,6 +340,73 @@
   <template file="../../xsl/preprocess/conref_template.xsl"/>
   <template file="../../xsl/preprocess/topicpull_template.xsl"/>
   <template file="../../xsl/preprocess/flag_template.xsl"/>
+</plugin><plugin id="com.couchbase.docs.cbhtml5">
+
+	<feature extension="dita.xsl.xhtml" type="file" value="xsl/use-code-tags.xsl"/>
+	
+</plugin><plugin id="org.dita.pdf2">
+  <!-- extension points -->
+  <extension-point id="dita.xsl.xslfo" name="PDF XSLT import"/>
+  <extension-point id="org.dita.pdf2.xsl.topicmerge" name="PDF2 topic merge XSLT import"/>
+  <extension-point id="depend.org.dita.pdf2.format.pre" name="Formatting pre-target"/>
+  <extension-point id="depend.org.dita.pdf2.format" name="Formatting target"/>
+  <extension-point id="depend.org.dita.pdf2.format.post" name="Formatting post-target"/>
+  <extension-point id="org.dita.pdf2.catalog.relative" name="Configuration XML catalog"/>
+  <extension-point id="dita.conductor.pdf2.param" name="PDF XSLT parameters"/>
+  <extension-point id="dita.conductor.pdf2.formatter.check" name="Formatter check"/>
+  <!-- extensions -->
+  <feature extension="dita.conductor.lib.import" file="lib/fo.jar"/>
+  <transtype desc="PDF" name="pdf pdf2">
+    <param desc="Specifies if the frontmatter and backmatter content order is retained in bookmap." name="args.bookmap-order" type="enum">
+      <val>retain</val>
+      <val default="true">discard</val>
+    </param>
+    <param desc="Specifies whether PDF bookmarks are by default expanded or collapsed." name="args.bookmark.style" type="enum">
+      <val>COLLAPSED</val>
+      <val>EXPANDED</val>
+      <val>COLLAPSE</val>
+    </param>
+    <param desc="Specifies whether chapter level TOCs are generated." name="args.chapter.layout" type="enum">
+      <val default="true">MINITOC</val>
+      <val>BASIC</val>
+    </param>
+    <param desc="Specifies an XSL file that is used to override the default XSL transformation." name="args.xsl.pdf" type="file"/>
+    <param desc="Specifies the user configuration file for RenderX." name="custom.xep.config" type="file"/>
+    <param desc="Specifies the customization directory." name="customization.dir" type="dir"/>
+    <param desc="Specifies the XSL processor." name="pdf.formatter" type="enum">
+      <val desc="Antenna House Formatter">ah</val>
+      <val default="true" desc="Apache FOP">fop</val>
+      <val desc="RenderX XEP Engine">xep</val>
+    </param>
+    <param desc="Specifies whether draft-comment and required-cleanup elements are included in the output." name="publish.required.cleanup" type="enum">
+      <val>yes</val>
+      <val>no</val>
+    </param>
+    <param deprecated="true" desc="Specifies whether to retain the generated FO file." name="retain.topic.fo" type="enum">
+      <val>yes</val>
+      <val default="true">no</val>
+    </param>
+    <param desc="Specifies the user configuration file for FOP." name="args.fo.userconfig" type="file"/>
+    <param desc="Enables I18N font processing." name="org.dita.pdf2.i18n.enabled" type="enum">
+      <val default="true" desc="Enables I18N processing">true</val>
+      <val desc="Disables I18N processing">false</val>
+    </param>
+  </transtype>
+  <feature extension="dita.transtype.print" value="pdf"/>
+  <feature extension="dita.transtype.print" value="pdf2"/>
+  <feature extension="dita.conductor.target.relative" file="integrator.xml"/>
+  <feature extension="dita.xsl.messages" file="resource/messages.xml"/>
+  <feature extension="dita.conductor.pdf2.formatter.check" value="fop"/>
+  <feature extension="dita.conductor.pdf2.formatter.check" value="xep"/>
+  <feature extension="dita.conductor.pdf2.formatter.check" value="ah"/>
+  <feature extension="dita.xsl.strings" file="cfg/common/vars/strings.xml"/>
+  <template file="build_template.xml"/>
+  <template file="cfg/catalog_template.xml"/>
+  <template file="xsl/fo/topic2fo_shell_template.xsl"/>
+  <template file="xsl/fo/topic2fo_shell_axf_template.xsl"/>
+  <template file="xsl/fo/topic2fo_shell_fop_template.xsl"/>
+  <template file="xsl/fo/topic2fo_shell_xep_template.xsl"/>
+  <template file="xsl/common/topicmerge_template.xsl"/>
 </plugin><plugin id="org.dita.odt">
   <!-- extension points -->
   <extension-point id="dita.xsl.odt" name="ODT XSLT import"/>
@@ -376,49 +421,4 @@
   <feature extension="dita.conductor.target.relative" file="conductor.xml"/>
   <feature extension="dita.xsl.strings" file="xsl/xslodt/common/strings.xml"/>
   <template file="xsl/dita2odt_template.xsl"/>
-</plugin><plugin id="org.dita.eclipsehelp">
-  <!-- extension points -->
-  <extension-point id="dita.xsl.eclipse.plugin" name="Eclipse plugin XSLT import"/>
-  <extension-point id="dita.map.eclipse.index.pre" name="Eclipse index extraction pre-target"/>
-  <extension-point id="dita.xsl.eclipse.toc" name="Eclipse TOC XSLT import"/>
-  <extension-point id="dita.conductor.eclipse.toc.param" name="Eclipse Help TOC XSLT parameter"/>
-  <!-- extensions -->
-  <transtype desc="Eclipse Help" extends="base-html" name="eclipsehelp">
-    <param desc="Specifies the name of the TOC file." name="args.eclipsehelp.toc" type="file"/>
-    <param desc="Specifies the region for the language that is specified by the args." name="args.eclipsehelp.country" type="string"/> 
-    <param desc="Specifies the base language for translated content, such as en for English." name="args.eclipsehelp.language" type="string"/> 
-    <param desc="Specifies the name of the person or organization that provides the Eclipse help." name="args.eclipse.provider" type="string">
-      <val default="true">DITA</val>
-    </param>
-    <param desc="Specifies the version number to include in the output." name="args.eclipse.version" type="string">
-      <val default="true">0.0.0</val>
-    </param>
-    <param desc="Specifies the symbolic name (aka plugin ID) in the output for an Eclipse Help project." name="args.eclipse.symbolic.name" type="string">
-      <val default="true">org.sample.help.doc</val>
-    </param>
-  </transtype>
-  <require plugin="org.dita.xhtml"/>
-  <feature extension="dita.conductor.target.relative" file="conductor.xml"/>
-  <template file="build_dita2eclipsehelp_template.xml"/>
-  <template file="xsl/map2eclipse_template.xsl"/>
-  <template file="xsl/map2plugin_template.xsl"/>
-</plugin><plugin id="org.dita.troff">
-  <extension-point id="dita.xsl.troff-ast" name="Troff AST XSLT import"/>
-  <extension-point id="dita.xsl.troff" name="Troff XSLT import"/>
-  <feature extension="dita.conductor.transtype.check" value="troff"/>
-  <feature extension="dita.conductor.target.relative" file="conductor.xml"/>
-  <template file="xsl/dita2troff-ast-shell_template.xsl"/>
-  <template file="xsl/dita2troff-step2-shell_template.xsl"/>
-  <require plugin="org.dita.base"/>
-</plugin><plugin id="org.dita.docbook">
-  <!-- extension points -->
-  <extension-point id="dita.xsl.docbook" name="Docbook XSLT import"/>
-  <!-- extensions -->
-  <transtype desc="DocBook" name="docbook"/>
-  <feature extension="dita.conductor.target.relative" file="conductor.xml"/>
-  <template file="xsl/dita2docbook_template.xsl"/>
-</plugin><plugin id="com.couchbase.docs.cbhtml5">
-
-	<feature extension="dita.xsl.xhtml" type="file" value="xsl/use-code-tags.xsl"/>
-	
 </plugin></plugins>

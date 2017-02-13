@@ -672,6 +672,11 @@
     <response>Remove references to this target from your custom XSLT or plug-ins.</response>
   </message>
 
+  <message id="DOTX048I" type="INFO">
+    <reason>In order to include peer or external topic '%1' in your help file, you may need to recompile the CHM file after making the file available.</reason>
+    <response/>
+  </message>
+
   
   <message id="DOTA066F" type="FATAL">
     <reason>Cannot find the user specified XSLT stylesheet '%1'.</reason>
@@ -755,11 +760,6 @@
   <message id="PDFX012F" type="FATAL">
     <reason>Unrecognized PDF formatter '%1'.</reason>
     <response>Use "fop" for FOP, "xep" for RenderX XEP, or "ah" for AH Formatter.</response>
-  </message>
-
-  <message id="DOTX048I" type="INFO">
-    <reason>In order to include peer or external topic '%1' in your help file, you may need to recompile the CHM file after making the file available.</reason>
-    <response/>
   </message>
 
   

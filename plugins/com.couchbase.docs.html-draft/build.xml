@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+
+  <target name="com.couchbase.docs.html-draft.init">
+    <property name="html-version" value="html5"/>
+    <property name="args.xsl" location="${dita.plugin.com.couchbase.docs.html-draft.dir}/xslt/dita2html.xsl"/>
+    <property name="args.css.file" value="base.css"/>
+    <property name="args.csspath" value="css"/>
+    <property name="args.devguide" value="yes"/>
+  </target>
+
+  <target name="com.couchbase.docs.html-draft">
+    <loadfile property="com.couchbase.docs.html-draft.map" srcfile="${dita.temp.dir}/${user.input.file.listfile}">
+      <filterchain>
+        <headfilter lines="1"/>
+      </filterchain>
+    </loadfile>
+    <makeurl property="com.couchbase.docs.html-draft.map.url" file="${dita.temp.dir}/${com.couchbase.docs.html-draft.map}"/>
+  </target>
+
+  <target name="dita2com.couchbase.docs.html-draft"
+          depends="com.couchbase.docs.html-draft.init,
+                   build-init,
+                   preprocess,
+                   copy-revflag,
+                   com.couchbase.docs.html-draft,
+                   xhtml.topics">
+    <copy todir="${output.dir}/assets">
+      <fileset dir="${dita.plugin.com.couchbase.docs.html-draft.dir}/assets" />
+    </copy>
+  </target>
+
+</project>

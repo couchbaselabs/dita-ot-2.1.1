@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin id="com.couchbase.docs.html-draft">
+  <feature extension="package.version" value="1.5.3"/>
+  <feature extension="dita.conductor.transtype.check" value="com.couchbase.docs.html-draft"/>
+  <feature extension="dita.conductor.target.relative" file="build.xml"/>
+  <feature extension="dita.conductor.xhtml.param" file="params.xml"/>
+</plugin>
