@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin id="com.couchbase.docs.editlink">
+
+  <feature extension="dita.xsl.xhtml" value="xhtml.xsl" type="file"/>
+  <feature extension="dita.conductor.xhtml.param" value="params.xml" type="file"/>
+  <transtype name="webhelp-responsive" desc="WebHelp Responsive">
+    <param name="editlink.remote.ditamap.url" desc="The custom URL of the DITA Map suitable for opening on GitHub" type="string"/>
+  </transtype>
+</plugin>
