@@ -10,36 +10,25 @@
   <xsl:param name="editlink.remote.ditamap.url"/>
   <xsl:param name="editlink.local.ditamap.path"/>
   
-<xsl:template match="*[contains(@class, ' topic/topic ')]/*[contains(@class, ' topic/title ')]" 
+<xsl:template match="*[contains(@class, ' topic/topic ')]/*[contains(@class, ' topic/body ')]" 
   use-when="system-property('editlink.remote.ditamap.url') != '${editlink.remote.ditamap.url}'">
   
-  <xsl:param name="headinglevel" as="xs:integer">
-      <xsl:choose>
-          <xsl:when test="count(ancestor::*[contains(@class, ' topic/topic ')]) > 6">6</xsl:when>
-          <xsl:otherwise><xsl:sequence select="count(ancestor::*[contains(@class, ' topic/topic ')])"/></xsl:otherwise>
-      </xsl:choose>
-  </xsl:param>
-  <xsl:element name="h{$headinglevel}">
-    <xsl:attribute name="style">display:table; width:100%;</xsl:attribute>
-    <xsl:attribute name="class">topictitle<xsl:value-of select="$headinglevel"/></xsl:attribute>
+  <xsl:element name="div">
+    <xsl:attribute name="class">body</xsl:attribute>
     <xsl:call-template name="commonattributes">
-      <xsl:with-param name="default-output-class">topictitle<xsl:value-of select="$headinglevel"/></xsl:with-param>
     </xsl:call-template>
-    <xsl:attribute name="id"><xsl:apply-templates select="." mode="return-aria-label-id"/></xsl:attribute>
-    
-    <div class="edit-link-container" style="display: table-cell; margin-top: 0;">
-      <xsl:apply-templates/>
-    </div>
-
     <!-- The edit link -->
-    <span class="edit-link" style="font-size: 14px; opacity: 0.6; display: table-cell; text-align: right; vertical-align: middle"> 
+    <p class="edit-link" style="font-size: 17px; opacity: 0.6; text-align: right;"> 
       <a target="_blank">
         <xsl:attribute name="href">
           <xsl:value-of select="editlink:genlink($editlink.remote.ditamap.url, $editlink.local.ditamap.path, @xtrf)"/>
         </xsl:attribute>Edit on GitHub</a>
-    </span>
+    </p>
     <!-- Done with the edit link -->
-  </xsl:element>      
+
+      <xsl:apply-templates/>
+
+     </xsl:element>      
   
   <xsl:value-of select="$newline"/>
 </xsl:template>
