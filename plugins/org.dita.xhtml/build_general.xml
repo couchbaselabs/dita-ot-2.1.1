@@ -147,6 +147,10 @@
       <param name="OUTPUTDIR" expression="${output.dir}"/>
       <param name="DBG" expression="${args.debug}" if="args.debug"/>
       
+    <param name="editlink.remote.ditamap.url" expression="${editlink.remote.ditamap.url}" if="editlink.remote.ditamap.url"/>
+    <sysproperty key="editlink.remote.ditamap.url" value="${editlink.remote.ditamap.url}"/>
+    <param name="editlink.local.ditamap.path" expression="${args.input}"/>
+
   <param name="input.map.url" expression="${com.couchbase.docs.html-draft.map.url}"/>
   <param name="DEVGUIDE" expression="${args.devguide}"/>
 
@@ -182,6 +186,10 @@
       <param name="OUTPUTDIR" expression="${output.dir}"/>
       <param name="DBG" expression="${args.debug}" if="args.debug"/>
       
+    <param name="editlink.remote.ditamap.url" expression="${editlink.remote.ditamap.url}" if="editlink.remote.ditamap.url"/>
+    <sysproperty key="editlink.remote.ditamap.url" value="${editlink.remote.ditamap.url}"/>
+    <param name="editlink.local.ditamap.path" expression="${args.input}"/>
+
   <param name="input.map.url" expression="${com.couchbase.docs.html-draft.map.url}"/>
   <param name="DEVGUIDE" expression="${args.devguide}"/>
 

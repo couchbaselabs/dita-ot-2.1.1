@@ -38,7 +38,7 @@
 <xsl:import href="xslhtml/markup-d.xsl"/>
 <xsl:import href="xslhtml/xml-d.xsl"/>
 
-<xsl:import xmlns:dita="http://dita-ot.sourceforge.net" href="../../com.couchbase.docs.cbhtml5/xsl/use-code-tags.xsl"/>
+<xsl:import xmlns:dita="http://dita-ot.sourceforge.net" href="../../com.couchbase.docs.cbhtml5/xsl/use-code-tags.xsl"/><xsl:import href="../../com.couchbase.editlink/xhtml.xsl"/>
 
 <!-- the dita to xhtml converter for element reference documents - not used now -->
 <!--<xsl:import href="elementrefdisp.xsl"/>-->
